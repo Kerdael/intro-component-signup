@@ -42,6 +42,9 @@ body {
   color: white;
   margin-right: 20px;
   width: 50%;
+  transform: translateY(-200%);
+  animation: comeindown 0.3s ease forwards;
+  opacity: 0;
 }
 
 .left h1 {
@@ -56,6 +59,9 @@ body {
   display: flex;
   flex-direction: column;
   width: 540px;
+  transform: translateY(200%);
+  animation: comeinup 0.3s ease forwards;
+  opacity: 0;
 }
 
 .right p {
@@ -170,7 +176,17 @@ form .ToS a {
   text-decoration: none;
 }
 
-/* Error stance */
+.attribution {
+  font-size: 13px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* 
+Error stance
+ */
 
 form div.error input {
   border: 2px solid var(--red);
@@ -184,10 +200,67 @@ form div.error small {
   display: block;
 }
 
-.attribution {
-  font-size: 13px;
-  text-align: center;
+/* 
+Mobile view
+ */
+
+@media (max-width: 1120px) {
+  body {
+    background-image: url("./images/bg-intro-mobile.png");
+    text-align: center;
+    background-position-x: fixed;
+    background-size: 100vw;
+    background-position: center;
+  }
+
+  .container {
+    flex-direction: column;
+    width: 85vw;
+    margin-top: 40px;
+  }
+
+  .left {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .left h1 {
+    font-size: 30px;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .right p {
+    padding: 20px 50px 20px 50px;
+    line-height: 1.7;
+  }
+
+  form {
+    padding: 10px 30px;
+    margin-bottom: 20px;
+  }
+
+  form input {
+    padding: 16px 0px 16px 15px;
+  }
 }
-.attribution a {
-  color: hsl(228, 45%, 44%);
+
+/* 
+Keyframes animations
+ */
+
+@keyframes comeindown {
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes comeinup {
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
